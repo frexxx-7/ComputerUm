@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.ComputersButton = new System.Windows.Forms.Button();
+            this.ComponentsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -38,7 +39,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(238, 37);
+            this.label1.Location = new System.Drawing.Point(244, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(117, 29);
             this.label1.TabIndex = 1;
@@ -47,13 +48,24 @@
             // ComputersButton
             // 
             this.ComputersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ComputersButton.Location = new System.Drawing.Point(219, 131);
+            this.ComputersButton.Location = new System.Drawing.Point(198, 130);
             this.ComputersButton.Name = "ComputersButton";
-            this.ComputersButton.Size = new System.Drawing.Size(156, 41);
+            this.ComputersButton.Size = new System.Drawing.Size(201, 41);
             this.ComputersButton.TabIndex = 6;
             this.ComputersButton.Text = "Компьютеры";
             this.ComputersButton.UseVisualStyleBackColor = true;
             this.ComputersButton.Click += new System.EventHandler(this.ComputersButton_Click);
+            // 
+            // ComponentsButton
+            // 
+            this.ComponentsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ComponentsButton.Location = new System.Drawing.Point(198, 229);
+            this.ComponentsButton.Name = "ComponentsButton";
+            this.ComponentsButton.Size = new System.Drawing.Size(201, 41);
+            this.ComponentsButton.TabIndex = 7;
+            this.ComponentsButton.Text = "Комплектующие";
+            this.ComponentsButton.UseVisualStyleBackColor = true;
+            this.ComponentsButton.Click += new System.EventHandler(this.ComponentsButton_Click);
             // 
             // Main
             // 
@@ -63,6 +75,7 @@
             this.BackgroundImage = global::ComputerUm.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(621, 546);
+            this.Controls.Add(this.ComponentsButton);
             this.Controls.Add(this.ComputersButton);
             this.Controls.Add(this.label1);
             this.Name = "Main";
@@ -78,5 +91,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button ComputersButton;
+        private System.Windows.Forms.Button ComponentsButton;
     }
 }

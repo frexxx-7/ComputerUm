@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddComponents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddComponents.Designer.cs">
+      <DependentUpon>AddComponents.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddComputer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,12 @@
     <Compile Include="AddModel.Designer.cs">
       <DependentUpon>AddModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddState.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddState.Designer.cs">
+      <DependentUpon>AddState.cs</DependentUpon>
+    </Compile>
     <Compile Include="Autorization.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +81,12 @@
       <DependentUpon>Autorization.cs</DependentUpon>
     </Compile>
     <Compile Include="ComboBoxItem.cs" />
+    <Compile Include="Components.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components.Designer.cs">
+      <DependentUpon>Components.cs</DependentUpon>
+    </Compile>
     <Compile Include="Computers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,14 +114,23 @@
     <Compile Include="Registration.Designer.cs">
       <DependentUpon>Registration.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddComponents.resx">
+      <DependentUpon>AddComponents.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddComputer.resx">
       <DependentUpon>AddComputer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddModel.resx">
       <DependentUpon>AddModel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddState.resx">
+      <DependentUpon>AddState.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Autorization.resx">
       <DependentUpon>Autorization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components.resx">
+      <DependentUpon>Components.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Computers.resx">
       <DependentUpon>Computers.cs</DependentUpon>

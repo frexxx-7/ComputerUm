@@ -25,6 +25,12 @@ namespace ComputerUm
             this.Hide();
         }
 
+        private void ComponentsButton_Click(object sender, EventArgs e)
+        {
+            new Components().Show();
+            this.Hide();
+        }
+
         public Main()
         {
             InitializeComponent();
