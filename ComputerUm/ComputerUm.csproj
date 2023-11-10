@@ -56,12 +56,19 @@
     <Compile Include="AddComputer.Designer.cs">
       <DependentUpon>AddComputer.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddModel.Designer.cs">
+      <DependentUpon>AddModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Autorization.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Autorization.Designer.cs">
       <DependentUpon>Autorization.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComboBoxItem.cs" />
     <Compile Include="Computers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +82,12 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddOperatingSystem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOperatingSystem.Designer.cs">
+      <DependentUpon>AddOperatingSystem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration.cs">
@@ -86,6 +99,9 @@
     <EmbeddedResource Include="AddComputer.resx">
       <DependentUpon>AddComputer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddModel.resx">
+      <DependentUpon>AddModel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Autorization.resx">
       <DependentUpon>Autorization.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddOperatingSystem.resx">
+      <DependentUpon>AddOperatingSystem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

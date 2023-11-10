@@ -53,6 +53,7 @@
             this.ComputersButton.TabIndex = 6;
             this.ComputersButton.Text = "Компьютеры";
             this.ComputersButton.UseVisualStyleBackColor = true;
+            this.ComputersButton.Click += new System.EventHandler(this.ComputersButton_Click);
             // 
             // Main
             // 
@@ -67,6 +68,7 @@
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Главная";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

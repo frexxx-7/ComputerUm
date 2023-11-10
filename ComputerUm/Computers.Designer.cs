@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.BackButton = new System.Windows.Forms.Button();
             this.UpdateButton = new System.Windows.Forms.Button();
-            this.RequestsDataGridView = new System.Windows.Forms.DataGridView();
+            this.ComputersDataGridView = new System.Windows.Forms.DataGridView();
             this.idDocrors = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateOfPurchase = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,7 +44,7 @@
             this.DeleteButton = new System.Windows.Forms.Button();
             this.SearchButton = new System.Windows.Forms.Button();
             this.SearchTextBox = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.RequestsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ComputersDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -79,40 +79,41 @@
             this.UpdateButton.TabIndex = 8;
             this.UpdateButton.Text = "Обновить";
             this.UpdateButton.UseVisualStyleBackColor = true;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
-            // RequestsDataGridView
+            // ComputersDataGridView
             // 
-            this.RequestsDataGridView.AllowUserToAddRows = false;
-            this.RequestsDataGridView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RequestsDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.RequestsDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ComputersDataGridView.AllowUserToAddRows = false;
+            this.ComputersDataGridView.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ComputersDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            this.ComputersDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.RequestsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.RequestsDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.RequestsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RequestsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ComputersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ComputersDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.ComputersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ComputersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDocrors,
             this.Model,
             this.DateOfPurchase,
             this.OperatingSystem});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RequestsDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
-            this.RequestsDataGridView.Location = new System.Drawing.Point(12, 74);
-            this.RequestsDataGridView.Name = "RequestsDataGridView";
-            this.RequestsDataGridView.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RequestsDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.RequestsDataGridView.RowTemplate.Height = 24;
-            this.RequestsDataGridView.Size = new System.Drawing.Size(1176, 353);
-            this.RequestsDataGridView.TabIndex = 15;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ComputersDataGridView.DefaultCellStyle = dataGridViewCellStyle17;
+            this.ComputersDataGridView.Location = new System.Drawing.Point(12, 74);
+            this.ComputersDataGridView.Name = "ComputersDataGridView";
+            this.ComputersDataGridView.RowHeadersWidth = 51;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ComputersDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            this.ComputersDataGridView.RowTemplate.Height = 24;
+            this.ComputersDataGridView.Size = new System.Drawing.Size(1176, 353);
+            this.ComputersDataGridView.TabIndex = 15;
             // 
             // idDocrors
             // 
@@ -161,6 +162,7 @@
             this.EditButton.TabIndex = 17;
             this.EditButton.Text = "Изменить";
             this.EditButton.UseVisualStyleBackColor = true;
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // DeleteButton
             // 
@@ -172,6 +174,7 @@
             this.DeleteButton.TabIndex = 18;
             this.DeleteButton.Text = "Удалить";
             this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // SearchButton
             // 
@@ -183,6 +186,7 @@
             this.SearchButton.TabIndex = 19;
             this.SearchButton.Text = "Поиск";
             this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // SearchTextBox
             // 
@@ -202,13 +206,17 @@
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.EditButton);
             this.Controls.Add(this.AddButton);
-            this.Controls.Add(this.RequestsDataGridView);
+            this.Controls.Add(this.ComputersDataGridView);
             this.Controls.Add(this.UpdateButton);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.label1);
             this.Name = "Computers";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Компьютеры";
-            ((System.ComponentModel.ISupportInitialize)(this.RequestsDataGridView)).EndInit();
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Computers_FormClosed);
+            this.Load += new System.EventHandler(this.Computers_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ComputersDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,7 +227,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.Button UpdateButton;
-        private System.Windows.Forms.DataGridView RequestsDataGridView;
+        private System.Windows.Forms.DataGridView ComputersDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDocrors;
         private System.Windows.Forms.DataGridViewTextBoxColumn Model;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateOfPurchase;
