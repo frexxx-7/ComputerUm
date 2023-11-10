@@ -21,7 +21,7 @@ namespace ComputerUm
         private void BackButton_Click(object sender, EventArgs e)
         {
             new Main().Show();
-            this.Close();
+            this.Hide();
         }
         private void loadInfoComponentsIntoDB()
         {
@@ -29,7 +29,7 @@ namespace ComputerUm
 
             ComponentsDataGridView.Rows.Clear();
 
-            string query = $"select components.id, components.serialNumber, state.name from components " +
+            string query = $"select components.id, components.name, components.serialNumber, state.name from components " +
                 $"join state on state.id = components.idState ";
 
             db.openConnection();
@@ -67,6 +67,69 @@ namespace ComputerUm
         private void Components_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            new AddComponents(null).Show();
+        }
+
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            new AddComponents(ComponentsDataGridView[0, ComponentsDataGridView.SelectedCells[0].RowIndex].Value.ToString()).Show();
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            DB db = new DB();
+            MySqlCommand command = new MySqlCommand($"delete from components where id = {ComponentsDataGridView[0, ComponentsDataGridView.SelectedCells[0].RowIndex].Value}", db.getConnection());
+            db.openConnection();
+
+            try
+            {
+                command.ExecuteNonQuery();
+                MessageBox.Show("Комплектующее удалено");
+
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            db.closeConnection();
+            loadInfoComponentsIntoDB();
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            DB db = new DB();
+
+            ComponentsDataGridView.Rows.Clear();
+
+            string searchString = $"select components.id, components.name, components.serialNumber, state.name from components " +
+                $"join state on state.id = components.idState " +
+                $"where concat (components.id, components.name, components.serialNumber, state.name) like '%" + SearchTextBox.Text + "%'";
+
+            db.openConnection();
+            using (MySqlCommand mySqlCommand = new MySqlCommand(searchString, db.getConnection()))
+            {
+                MySqlDataReader reader = mySqlCommand.ExecuteReader();
+
+                List<string[]> dataDB = new List<string[]>();
+                while (reader.Read())
+                {
+                    dataDB.Add(new string[reader.FieldCount]);
+
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        dataDB[dataDB.Count - 1][i] = reader[i].ToString();
+                    }
+                }
+                reader.Close();
+                foreach (string[] s in dataDB)
+                    ComponentsDataGridView.Rows.Add(s);
+            }
+            db.closeConnection();
         }
     }
 }

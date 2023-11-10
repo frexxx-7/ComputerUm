@@ -116,12 +116,13 @@
             // 
             this.AddStateButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.AddStateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddStateButton.Location = new System.Drawing.Point(230, 347);
+            this.AddStateButton.Location = new System.Drawing.Point(230, 348);
             this.AddStateButton.Name = "AddStateButton";
             this.AddStateButton.Size = new System.Drawing.Size(255, 41);
             this.AddStateButton.TabIndex = 30;
             this.AddStateButton.Text = "Добавить состояние";
             this.AddStateButton.UseVisualStyleBackColor = true;
+            this.AddStateButton.Click += new System.EventHandler(this.AddStateButton_Click);
             // 
             // AddButton
             // 
@@ -133,6 +134,7 @@
             this.AddButton.TabIndex = 31;
             this.AddButton.Text = "Добавить";
             this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // CanceledButton
             // 
@@ -162,6 +164,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AddComponents";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавить комплектующие";
             this.ResumeLayout(false);
             this.PerformLayout();
