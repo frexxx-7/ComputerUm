@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 10 2023 г., 16:40
--- Версия сервера: 5.6.51
--- Версия PHP: 7.2.34
+-- Время создания: Ноя 12 2023 г., 00:17
+-- Версия сервера: 10.3.22-MariaDB
+-- Версия PHP: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `computerUm`
+-- База данных: `computerum`
 --
 
 -- --------------------------------------------------------
@@ -33,6 +33,16 @@ CREATE TABLE `components` (
   `serialNumber` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `idState` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `components`
+--
+
+INSERT INTO `components` (`id`, `name`, `serialNumber`, `idState`) VALUES
+(2, 'комп 1', 'комп 1 1', 2),
+(3, 'qwe', 'qwe', 1),
+(4, 'qwe', 'qwe', 1),
+(5, 'asd', 'asd', 1);
 
 -- --------------------------------------------------------
 
@@ -59,6 +69,47 @@ INSERT INTO `computers` (`id`, `idModel`, `dateOfPurchase`, `idOperatingSystem`)
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `employees`
+--
+
+CREATE TABLE `employees` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `patronymic` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `surname` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `idJobTitle` int(11) DEFAULT NULL,
+  `employmentDate` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `salary` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `employees`
+--
+
+INSERT INTO `employees` (`id`, `name`, `patronymic`, `surname`, `idJobTitle`, `employmentDate`, `salary`) VALUES
+(3, 'asd', 'asd', 'asd', 1, '12.11.2023', 124);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `jobtitle`
+--
+
+CREATE TABLE `jobtitle` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `jobtitle`
+--
+
+INSERT INTO `jobtitle` (`id`, `name`) VALUES
+(1, 'qwe');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `models`
 --
 
@@ -79,19 +130,19 @@ INSERT INTO `models` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `operatingSystem`
+-- Структура таблицы `operatingsystem`
 --
 
-CREATE TABLE `operatingSystem` (
+CREATE TABLE `operatingsystem` (
   `id` int(11) NOT NULL,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Дамп данных таблицы `operatingSystem`
+-- Дамп данных таблицы `operatingsystem`
 --
 
-INSERT INTO `operatingSystem` (`id`, `name`) VALUES
+INSERT INTO `operatingsystem` (`id`, `name`) VALUES
 (1, 'asd'),
 (2, 'asd 2');
 
@@ -105,6 +156,14 @@ CREATE TABLE `state` (
   `id` int(11) NOT NULL,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `state`
+--
+
+INSERT INTO `state` (`id`, `name`) VALUES
+(1, 'qwe'),
+(2, 'Состояние 1');
 
 -- --------------------------------------------------------
 
@@ -145,15 +204,28 @@ ALTER TABLE `computers`
   ADD KEY `idOperatingSystem` (`idOperatingSystem`);
 
 --
+-- Индексы таблицы `employees`
+--
+ALTER TABLE `employees`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idJobTitle` (`idJobTitle`);
+
+--
+-- Индексы таблицы `jobtitle`
+--
+ALTER TABLE `jobtitle`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `models`
 --
 ALTER TABLE `models`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `operatingSystem`
+-- Индексы таблицы `operatingsystem`
 --
-ALTER TABLE `operatingSystem`
+ALTER TABLE `operatingsystem`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -176,7 +248,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `components`
 --
 ALTER TABLE `components`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `computers`
@@ -185,15 +257,33 @@ ALTER TABLE `computers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT для таблицы `employees`
+--
+ALTER TABLE `employees`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT для таблицы `jobtitle`
+--
+ALTER TABLE `jobtitle`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT для таблицы `models`
 --
 ALTER TABLE `models`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT для таблицы `operatingSystem`
+-- AUTO_INCREMENT для таблицы `operatingsystem`
 --
-ALTER TABLE `operatingSystem`
+ALTER TABLE `operatingsystem`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT для таблицы `state`
+--
+ALTER TABLE `state`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
@@ -210,14 +300,22 @@ ALTER TABLE `users`
 -- Ограничения внешнего ключа таблицы `components`
 --
 ALTER TABLE `components`
-  ADD CONSTRAINT `components_ibfk_1` FOREIGN KEY (`idState`) REFERENCES `state` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `components_ibfk_1` FOREIGN KEY (`idState`) REFERENCES `state` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `components_ibfk_2` FOREIGN KEY (`idState`) REFERENCES `state` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `computers`
 --
 ALTER TABLE `computers`
   ADD CONSTRAINT `computers_ibfk_1` FOREIGN KEY (`idModel`) REFERENCES `models` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `computers_ibfk_2` FOREIGN KEY (`idOperatingSystem`) REFERENCES `operatingSystem` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `computers_ibfk_2` FOREIGN KEY (`idOperatingSystem`) REFERENCES `operatingsystem` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ограничения внешнего ключа таблицы `employees`
+--
+ALTER TABLE `employees`
+  ADD CONSTRAINT `employees_ibfk_1` FOREIGN KEY (`idJobTitle`) REFERENCES `jobtitle` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `employees_ibfk_2` FOREIGN KEY (`idJobTitle`) REFERENCES `jobtitle` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
