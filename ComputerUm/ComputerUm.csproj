@@ -62,6 +62,18 @@
     <Compile Include="AddComputer.Designer.cs">
       <DependentUpon>AddComputer.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEmployee.Designer.cs">
+      <DependentUpon>AddEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddJobTitle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddJobTitle.Designer.cs">
+      <DependentUpon>AddJobTitle.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddModel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +106,12 @@
       <DependentUpon>Computers.cs</DependentUpon>
     </Compile>
     <Compile Include="DB.cs" />
+    <Compile Include="Employees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees.Designer.cs">
+      <DependentUpon>Employees.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +138,12 @@
     <EmbeddedResource Include="AddComputer.resx">
       <DependentUpon>AddComputer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddEmployee.resx">
+      <DependentUpon>AddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddJobTitle.resx">
+      <DependentUpon>AddJobTitle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddModel.resx">
       <DependentUpon>AddModel.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Computers.resx">
       <DependentUpon>Computers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees.resx">
+      <DependentUpon>Employees.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

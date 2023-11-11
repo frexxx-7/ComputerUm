@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ComputersButton = new System.Windows.Forms.Button();
             this.ComponentsButton = new System.Windows.Forms.Button();
+            this.EmployeesButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -67,6 +68,17 @@
             this.ComponentsButton.UseVisualStyleBackColor = true;
             this.ComponentsButton.Click += new System.EventHandler(this.ComponentsButton_Click);
             // 
+            // EmployeesButton
+            // 
+            this.EmployeesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EmployeesButton.Location = new System.Drawing.Point(198, 333);
+            this.EmployeesButton.Name = "EmployeesButton";
+            this.EmployeesButton.Size = new System.Drawing.Size(201, 41);
+            this.EmployeesButton.TabIndex = 8;
+            this.EmployeesButton.Text = "Сотрудники";
+            this.EmployeesButton.UseVisualStyleBackColor = true;
+            this.EmployeesButton.Click += new System.EventHandler(this.EmployeesButton_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -75,6 +87,7 @@
             this.BackgroundImage = global::ComputerUm.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(621, 546);
+            this.Controls.Add(this.EmployeesButton);
             this.Controls.Add(this.ComponentsButton);
             this.Controls.Add(this.ComputersButton);
             this.Controls.Add(this.label1);
@@ -92,5 +105,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button ComputersButton;
         private System.Windows.Forms.Button ComponentsButton;
+        private System.Windows.Forms.Button EmployeesButton;
     }
 }

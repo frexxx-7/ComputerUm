@@ -87,7 +87,6 @@ namespace ComputerUm
                 OperatingSystemComboBox.Items.Add(item);
             }
             reader.Close();
-            reader.Close();
         }
 
         private void loadInfoModel()

@@ -31,6 +31,12 @@ namespace ComputerUm
             this.Hide();
         }
 
+        private void EmployeesButton_Click(object sender, EventArgs e)
+        {
+            new Employees().Show();
+            this.Hide();
+        }
+
         public Main()
         {
             InitializeComponent();
