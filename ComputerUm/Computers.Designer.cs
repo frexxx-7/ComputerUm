@@ -44,6 +44,7 @@
             this.DeleteButton = new System.Windows.Forms.Button();
             this.SearchButton = new System.Windows.Forms.Button();
             this.SearchTextBox = new System.Windows.Forms.TextBox();
+            this.OutputButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ComputersDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -196,12 +197,24 @@
             this.SearchTextBox.Size = new System.Drawing.Size(366, 22);
             this.SearchTextBox.TabIndex = 20;
             // 
+            // OutputButton
+            // 
+            this.OutputButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.OutputButton.Location = new System.Drawing.Point(467, 454);
+            this.OutputButton.Name = "OutputButton";
+            this.OutputButton.Size = new System.Drawing.Size(117, 41);
+            this.OutputButton.TabIndex = 40;
+            this.OutputButton.Text = "Вывод";
+            this.OutputButton.UseVisualStyleBackColor = true;
+            this.OutputButton.Click += new System.EventHandler(this.OutputButton_Click);
+            // 
             // Computers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1216, 549);
+            this.Controls.Add(this.OutputButton);
             this.Controls.Add(this.SearchTextBox);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.DeleteButton);
@@ -238,5 +251,6 @@
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.TextBox SearchTextBox;
+        private System.Windows.Forms.Button OutputButton;
     }
 }
