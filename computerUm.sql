@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 12 2023 г., 00:17
--- Версия сервера: 10.3.22-MariaDB
--- Версия PHP: 7.1.33
+-- Время создания: Ноя 13 2023 г., 09:16
+-- Версия сервера: 5.6.51
+-- Версия PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `computerum`
+-- База данных: `computerUm`
 --
 
 -- --------------------------------------------------------
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `components` (
   `id` int(11) NOT NULL,
-  `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `serialNumber` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `idState` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -39,10 +39,12 @@ CREATE TABLE `components` (
 --
 
 INSERT INTO `components` (`id`, `name`, `serialNumber`, `idState`) VALUES
-(2, 'комп 1', 'комп 1 1', 2),
-(3, 'qwe', 'qwe', 1),
-(4, 'qwe', 'qwe', 1),
-(5, 'asd', 'asd', 1);
+(2, 'Центральный процессор (CPU) Intel Core i7-9700K', '234', 1),
+(3, 'Материнская плата ASUS ROG Strix Z390-E Gaming', '675', 1),
+(4, 'Оперативная память (RAM) - Corsair Vengeance LPX 16GB DDR4 3200MHz', '2356', 1),
+(5, ' Жесткий диск (HDD) - Seagate Barracuda 2TB', 'asd', 1),
+(6, 'Видеокарта - NVIDIA GeForce RTX 2080 Ti', '237867', NULL),
+(7, 'Видеокарта - NVIDIA GeForce RTX 2080 Ti', '567', 4);
 
 -- --------------------------------------------------------
 
@@ -63,8 +65,10 @@ CREATE TABLE `computers` (
 
 INSERT INTO `computers` (`id`, `idModel`, `dateOfPurchase`, `idOperatingSystem`) VALUES
 (1, 3, '11.11.2023', 1),
-(3, 3, '10.11.2023', 1),
-(4, 1, '01.11.2023', 1);
+(3, 2, '10.11.2023', 1),
+(4, 1, '01.11.2023', 2),
+(5, 4, '13.11.2023', 1),
+(6, 5, '13.11.2023', 3);
 
 -- --------------------------------------------------------
 
@@ -87,7 +91,11 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`id`, `name`, `patronymic`, `surname`, `idJobTitle`, `employmentDate`, `salary`) VALUES
-(3, 'asd', 'asd', 'asd', 1, '12.11.2023', 124);
+(3, 'Иван', 'Иванович', 'Иванов', 1, '12.11.2023', 124),
+(4, 'Елена ', 'Андреевна', 'Петрова', 5, '13.11.2023', 346),
+(5, 'Ольга', 'Владимировна', 'Козлова ', 2, '13.11.2023', 897),
+(6, 'Антон ', 'Викторович', 'Николаев ', 4, '13.11.2023', 667),
+(7, 'Дмитрий ', 'Игоревич', 'Смирнов ', 3, '13.11.2023', 987);
 
 -- --------------------------------------------------------
 
@@ -105,7 +113,11 @@ CREATE TABLE `jobtitle` (
 --
 
 INSERT INTO `jobtitle` (`id`, `name`) VALUES
-(1, 'qwe');
+(1, 'Директор по маркетингу'),
+(2, 'Финансовый аналитик'),
+(3, 'Менеджер по продажам'),
+(4, 'Главный инженер'),
+(5, 'Художественный директор');
 
 -- --------------------------------------------------------
 
@@ -123,9 +135,11 @@ CREATE TABLE `models` (
 --
 
 INSERT INTO `models` (`id`, `name`) VALUES
-(1, 'qwe'),
-(2, 'qwe'),
-(3, 'Ноутбук');
+(1, ' Apple MacBook Pro'),
+(2, 'Dell XPS'),
+(3, 'HP Spectre x360'),
+(4, 'Lenovo ThinkPad'),
+(5, 'Asus ZenBook');
 
 -- --------------------------------------------------------
 
@@ -143,8 +157,11 @@ CREATE TABLE `operatingsystem` (
 --
 
 INSERT INTO `operatingsystem` (`id`, `name`) VALUES
-(1, 'asd'),
-(2, 'asd 2');
+(1, 'Windows'),
+(2, 'macOS'),
+(3, 'Linux'),
+(4, 'Android'),
+(5, 'iOS');
 
 -- --------------------------------------------------------
 
@@ -162,8 +179,11 @@ CREATE TABLE `state` (
 --
 
 INSERT INTO `state` (`id`, `name`) VALUES
-(1, 'qwe'),
-(2, 'Состояние 1');
+(1, 'Идеально'),
+(2, 'Имеет проблемы с клавиатурой или тачпадом'),
+(3, 'Имеет поврежденный или треснутый экран.'),
+(4, 'Периодически зависает или вылетает из приложений.'),
+(5, 'Имеет проблемы с звуком или аудио-выводом.');
 
 -- --------------------------------------------------------
 
@@ -182,7 +202,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `password`) VALUES
-(1, 'qwe', 'qwe');
+(1, 'qwe', 'qwe'),
+(2, 'Danik', 'Danik'),
+(3, 'Ilya', 'Ilya'),
+(4, 'Maksim', 'Maksim'),
+(5, 'Alina', 'Alina');
 
 --
 -- Индексы сохранённых таблиц
@@ -248,49 +272,49 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `components`
 --
 ALTER TABLE `components`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблицы `computers`
 --
 ALTER TABLE `computers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблицы `jobtitle`
 --
 ALTER TABLE `jobtitle`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `models`
 --
 ALTER TABLE `models`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `operatingsystem`
 --
 ALTER TABLE `operatingsystem`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `state`
 --
 ALTER TABLE `state`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

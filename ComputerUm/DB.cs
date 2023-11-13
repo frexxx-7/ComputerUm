@@ -10,7 +10,7 @@ namespace ComputerUm
 {
     internal class DB
     {
-        public MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password='root';database=computerum");
+        public MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password='';database=computerum");
 
         public void openConnection()
         {
