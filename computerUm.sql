@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 13 2023 г., 09:16
+-- Время создания: Ноя 13 2023 г., 16:22
 -- Версия сервера: 5.6.51
 -- Версия PHP: 7.2.34
 
@@ -56,19 +56,21 @@ CREATE TABLE `computers` (
   `id` int(11) NOT NULL,
   `idModel` int(11) DEFAULT NULL,
   `dateOfPurchase` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `idOperatingSystem` int(11) DEFAULT NULL
+  `idOperatingSystem` int(11) DEFAULT NULL,
+  `idState` int(11) DEFAULT NULL,
+  `idUser` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `computers`
 --
 
-INSERT INTO `computers` (`id`, `idModel`, `dateOfPurchase`, `idOperatingSystem`) VALUES
-(1, 3, '11.11.2023', 1),
-(3, 2, '10.11.2023', 1),
-(4, 1, '01.11.2023', 2),
-(5, 4, '13.11.2023', 1),
-(6, 5, '13.11.2023', 3);
+INSERT INTO `computers` (`id`, `idModel`, `dateOfPurchase`, `idOperatingSystem`, `idState`, `idUser`) VALUES
+(1, 3, '11.11.2023', 1, NULL, NULL),
+(3, 2, '10.11.2023', 1, NULL, NULL),
+(4, 1, '01.11.2023', 2, 2, NULL),
+(5, 4, '13.11.2023', 1, NULL, NULL),
+(6, 5, '13.11.2023', 3, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -83,19 +85,20 @@ CREATE TABLE `employees` (
   `surname` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `idJobTitle` int(11) DEFAULT NULL,
   `employmentDate` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `salary` int(11) DEFAULT NULL
+  `salary` int(11) DEFAULT NULL,
+  `idUser` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `employees`
 --
 
-INSERT INTO `employees` (`id`, `name`, `patronymic`, `surname`, `idJobTitle`, `employmentDate`, `salary`) VALUES
-(3, 'Иван', 'Иванович', 'Иванов', 1, '12.11.2023', 124),
-(4, 'Елена ', 'Андреевна', 'Петрова', 5, '13.11.2023', 346),
-(5, 'Ольга', 'Владимировна', 'Козлова ', 2, '13.11.2023', 897),
-(6, 'Антон ', 'Викторович', 'Николаев ', 4, '13.11.2023', 667),
-(7, 'Дмитрий ', 'Игоревич', 'Смирнов ', 3, '13.11.2023', 987);
+INSERT INTO `employees` (`id`, `name`, `patronymic`, `surname`, `idJobTitle`, `employmentDate`, `salary`, `idUser`) VALUES
+(3, 'Иван', 'Иванович', 'Иванов', 1, '12.11.2023', 124, 2),
+(4, 'Елена ', 'Андреевна', 'Петрова', 5, '13.11.2023', 346, NULL),
+(5, 'Ольга', 'Владимировна', 'Козлова ', 2, '13.11.2023', 897, NULL),
+(6, 'Антон ', 'Викторович', 'Николаев ', 4, '13.11.2023', 667, NULL),
+(7, 'Дмитрий ', 'Игоревич', 'Смирнов ', 3, '13.11.2023', 987, NULL);
 
 -- --------------------------------------------------------
 
@@ -225,14 +228,17 @@ ALTER TABLE `components`
 ALTER TABLE `computers`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idModel` (`idModel`),
-  ADD KEY `idOperatingSystem` (`idOperatingSystem`);
+  ADD KEY `idOperatingSystem` (`idOperatingSystem`),
+  ADD KEY `idState` (`idState`),
+  ADD KEY `idUser` (`idUser`);
 
 --
 -- Индексы таблицы `employees`
 --
 ALTER TABLE `employees`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `idJobTitle` (`idJobTitle`);
+  ADD KEY `idJobTitle` (`idJobTitle`),
+  ADD KEY `idUser` (`idUser`);
 
 --
 -- Индексы таблицы `jobtitle`
@@ -284,7 +290,7 @@ ALTER TABLE `computers`
 -- AUTO_INCREMENT для таблицы `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT для таблицы `jobtitle`
@@ -332,14 +338,17 @@ ALTER TABLE `components`
 --
 ALTER TABLE `computers`
   ADD CONSTRAINT `computers_ibfk_1` FOREIGN KEY (`idModel`) REFERENCES `models` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `computers_ibfk_2` FOREIGN KEY (`idOperatingSystem`) REFERENCES `operatingsystem` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `computers_ibfk_2` FOREIGN KEY (`idOperatingSystem`) REFERENCES `operatingsystem` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `computers_ibfk_3` FOREIGN KEY (`idState`) REFERENCES `state` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `computers_ibfk_4` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `employees`
 --
 ALTER TABLE `employees`
   ADD CONSTRAINT `employees_ibfk_1` FOREIGN KEY (`idJobTitle`) REFERENCES `jobtitle` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `employees_ibfk_2` FOREIGN KEY (`idJobTitle`) REFERENCES `jobtitle` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `employees_ibfk_2` FOREIGN KEY (`idJobTitle`) REFERENCES `jobtitle` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `employees_ibfk_3` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

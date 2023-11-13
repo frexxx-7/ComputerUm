@@ -19,6 +19,7 @@ namespace ComputerUm
             InitializeComponent();
 
             loadInfoModel();
+            loadInfoState();
             loadInfoOperatingSystem();
             this.idComputer = idComputer;
 
@@ -28,6 +29,26 @@ namespace ComputerUm
                 AddButton.Text = "Изменить";
                 loadInfoComputerIntoDb();
             }
+        }
+        private void loadInfoState()
+        {
+            DB db = new DB();
+            string queryInfo = $"SELECT * FROM state";
+            MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
+
+            db.openConnection();
+
+            MySqlDataReader reader = mySqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = $" {reader[1]}";
+                item.Value = reader[0];
+                StateComboBox.Items.Add(item);
+            }
+            reader.Close();
+
+            db.closeConnection();
         }
 
         private void loadInfoComputerIntoDb()
@@ -61,6 +82,16 @@ namespace ComputerUm
                         if (Convert.ToInt32((OperatingSystemComboBox.Items[i] as ComboBoxItem).Value) == Convert.ToInt32(reader[3]))
                         {
                             OperatingSystemComboBox.SelectedIndex = i;
+                        }
+                    }
+                }
+                for (int i = 0; i < StateComboBox.Items.Count; i++)
+                {
+                    if (reader["idState"].ToString() != "")
+                    {
+                        if (Convert.ToInt32((StateComboBox.Items[i] as ComboBoxItem).Value) == Convert.ToInt32(reader["idState"]))
+                        {
+                            StateComboBox.SelectedIndex = i;
                         }
                     }
                 }
@@ -131,10 +162,13 @@ namespace ComputerUm
             DB db = new DB();
             if (idComputer == null)
             {
-                MySqlCommand command = new MySqlCommand($"INSERT into computers (idModel, dateOfPurchase, idOperatingSystem) values(@idModel, @dateOfPurchase, @idOperatingSystem)", db.getConnection());
+                MySqlCommand command = new MySqlCommand($"INSERT into computers (idModel, dateOfPurchase, idOperatingSystem, idUser, idState) " +
+                    $"values(@idModel, @dateOfPurchase, @idOperatingSystem, @idUser, @idState)", db.getConnection());
                 command.Parameters.AddWithValue("@idModel", (ModelComboBox.SelectedItem as ComboBoxItem).Value);
                 command.Parameters.AddWithValue("@dateOfPurchase", dateTimePicker1.Value.ToString("dd.MM.yyyy"));
+                command.Parameters.AddWithValue("@idUser", Main.idUser);
                 command.Parameters.AddWithValue("@idOperatingSystem", (OperatingSystemComboBox.SelectedItem as ComboBoxItem).Value);
+                command.Parameters.AddWithValue("@idState", (StateComboBox.SelectedItem as ComboBoxItem).Value);
                 db.openConnection();
 
                 try
@@ -152,10 +186,11 @@ namespace ComputerUm
             }
             else
             {
-                MySqlCommand command = new MySqlCommand($"Update computers set idModel = @idModel, dateOfPurchase = @dateOfPurchase, idOperatingSystem = @idOperatingSystem where id = {idComputer}", db.getConnection());
+                MySqlCommand command = new MySqlCommand($"Update computers set idModel = @idModel, dateOfPurchase = @dateOfPurchase, idOperatingSystem = @idOperatingSystem, idState = @idState where id = {idComputer}", db.getConnection());
                 command.Parameters.AddWithValue("@idModel", (ModelComboBox.SelectedItem as ComboBoxItem).Value);
                 command.Parameters.AddWithValue("@dateOfPurchase", dateTimePicker1.Value.ToString("dd.MM.yyyy"));
                 command.Parameters.AddWithValue("@idOperatingSystem", (OperatingSystemComboBox.SelectedItem as ComboBoxItem).Value);
+                command.Parameters.AddWithValue("@idState", (StateComboBox.SelectedItem as ComboBoxItem).Value);
                 db.openConnection();
 
                 try
@@ -171,6 +206,11 @@ namespace ComputerUm
 
                 db.closeConnection();
             }
+        }
+
+        private void AddStateButton_Click(object sender, EventArgs e)
+        {
+            new AddState().Show();
         }
     }
 }

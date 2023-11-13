@@ -39,6 +39,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.CanceledButton = new System.Windows.Forms.Button();
+            this.AddStateButton = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.StateComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -114,9 +117,8 @@
             // 
             // AddModelButton
             // 
-            this.AddModelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AddModelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddModelButton.Location = new System.Drawing.Point(255, 132);
+            this.AddModelButton.Location = new System.Drawing.Point(255, 124);
             this.AddModelButton.Name = "AddModelButton";
             this.AddModelButton.Size = new System.Drawing.Size(181, 41);
             this.AddModelButton.TabIndex = 20;
@@ -126,9 +128,8 @@
             // 
             // button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(255, 373);
+            this.button1.Location = new System.Drawing.Point(255, 380);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(312, 41);
             this.button1.TabIndex = 21;
@@ -140,7 +141,7 @@
             // 
             this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddButton.Location = new System.Drawing.Point(12, 507);
+            this.AddButton.Location = new System.Drawing.Point(12, 562);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(117, 41);
             this.AddButton.TabIndex = 22;
@@ -152,7 +153,7 @@
             // 
             this.CanceledButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.CanceledButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CanceledButton.Location = new System.Drawing.Point(546, 507);
+            this.CanceledButton.Location = new System.Drawing.Point(546, 562);
             this.CanceledButton.Name = "CanceledButton";
             this.CanceledButton.Size = new System.Drawing.Size(117, 41);
             this.CanceledButton.TabIndex = 23;
@@ -160,12 +161,47 @@
             this.CanceledButton.UseVisualStyleBackColor = true;
             this.CanceledButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
+            // AddStateButton
+            // 
+            this.AddStateButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.AddStateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AddStateButton.Location = new System.Drawing.Point(255, 506);
+            this.AddStateButton.Name = "AddStateButton";
+            this.AddStateButton.Size = new System.Drawing.Size(214, 41);
+            this.AddStateButton.TabIndex = 33;
+            this.AddStateButton.Text = "Добавить состояние";
+            this.AddStateButton.UseVisualStyleBackColor = true;
+            this.AddStateButton.Click += new System.EventHandler(this.AddStateButton_Click);
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(12, 448);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(113, 25);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Состояние";
+            // 
+            // StateComboBox
+            // 
+            this.StateComboBox.FormattingEnabled = true;
+            this.StateComboBox.Location = new System.Drawing.Point(255, 449);
+            this.StateComboBox.Name = "StateComboBox";
+            this.StateComboBox.Size = new System.Drawing.Size(363, 24);
+            this.StateComboBox.TabIndex = 31;
+            // 
             // AddComputer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(675, 560);
+            this.ClientSize = new System.Drawing.Size(675, 615);
+            this.Controls.Add(this.AddStateButton);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.StateComboBox);
             this.Controls.Add(this.CanceledButton);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.button1);
@@ -198,5 +234,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button CanceledButton;
+        private System.Windows.Forms.Button AddStateButton;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox StateComboBox;
     }
 }

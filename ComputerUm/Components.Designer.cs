@@ -37,14 +37,14 @@
             this.EditButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.ComponentsDataGridView = new System.Windows.Forms.DataGridView();
-            this.idDocrors = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SerialNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.State = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UpdateButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.OutputButton = new System.Windows.Forms.Button();
+            this.State = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SerialNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDocrors = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ComponentsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,31 +138,6 @@
             this.ComponentsDataGridView.Size = new System.Drawing.Size(1270, 298);
             this.ComponentsDataGridView.TabIndex = 24;
             // 
-            // idDocrors
-            // 
-            this.idDocrors.HeaderText = "id";
-            this.idDocrors.MinimumWidth = 6;
-            this.idDocrors.Name = "idDocrors";
-            this.idDocrors.Visible = false;
-            // 
-            // NameColumn
-            // 
-            this.NameColumn.HeaderText = "Название";
-            this.NameColumn.MinimumWidth = 6;
-            this.NameColumn.Name = "NameColumn";
-            // 
-            // SerialNumber
-            // 
-            this.SerialNumber.HeaderText = "Серийный номер";
-            this.SerialNumber.MinimumWidth = 6;
-            this.SerialNumber.Name = "SerialNumber";
-            // 
-            // State
-            // 
-            this.State.HeaderText = "Состояние";
-            this.State.MinimumWidth = 6;
-            this.State.Name = "State";
-            // 
             // UpdateButton
             // 
             this.UpdateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -209,6 +184,31 @@
             this.OutputButton.UseVisualStyleBackColor = true;
             this.OutputButton.Click += new System.EventHandler(this.OutputButton_Click);
             // 
+            // State
+            // 
+            this.State.HeaderText = "Состояние";
+            this.State.MinimumWidth = 6;
+            this.State.Name = "State";
+            // 
+            // SerialNumber
+            // 
+            this.SerialNumber.HeaderText = "Серийный номер";
+            this.SerialNumber.MinimumWidth = 6;
+            this.SerialNumber.Name = "SerialNumber";
+            // 
+            // NameColumn
+            // 
+            this.NameColumn.HeaderText = "Название";
+            this.NameColumn.MinimumWidth = 6;
+            this.NameColumn.Name = "NameColumn";
+            // 
+            // idDocrors
+            // 
+            this.idDocrors.HeaderText = "id";
+            this.idDocrors.MinimumWidth = 6;
+            this.idDocrors.Name = "idDocrors";
+            this.idDocrors.Visible = false;
+            // 
             // Components
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -245,13 +245,13 @@
         private System.Windows.Forms.Button EditButton;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.DataGridView ComponentsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDocrors;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SerialNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn State;
         private System.Windows.Forms.Button UpdateButton;
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button OutputButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDocrors;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SerialNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn State;
     }
 }

@@ -35,16 +35,17 @@
             this.BackButton = new System.Windows.Forms.Button();
             this.UpdateButton = new System.Windows.Forms.Button();
             this.ComputersDataGridView = new System.Windows.Forms.DataGridView();
-            this.idDocrors = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateOfPurchase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OperatingSystem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AddButton = new System.Windows.Forms.Button();
             this.EditButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.SearchButton = new System.Windows.Forms.Button();
             this.SearchTextBox = new System.Windows.Forms.TextBox();
             this.OutputButton = new System.Windows.Forms.Button();
+            this.idDocrors = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateOfPurchase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OperatingSystem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.State = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ComputersDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,7 +99,8 @@
             this.idDocrors,
             this.Model,
             this.DateOfPurchase,
-            this.OperatingSystem});
+            this.OperatingSystem,
+            this.State});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -115,31 +117,6 @@
             this.ComputersDataGridView.RowTemplate.Height = 24;
             this.ComputersDataGridView.Size = new System.Drawing.Size(1176, 353);
             this.ComputersDataGridView.TabIndex = 15;
-            // 
-            // idDocrors
-            // 
-            this.idDocrors.HeaderText = "id";
-            this.idDocrors.MinimumWidth = 6;
-            this.idDocrors.Name = "idDocrors";
-            this.idDocrors.Visible = false;
-            // 
-            // Model
-            // 
-            this.Model.HeaderText = "Модель";
-            this.Model.MinimumWidth = 6;
-            this.Model.Name = "Model";
-            // 
-            // DateOfPurchase
-            // 
-            this.DateOfPurchase.HeaderText = "Дата покупки";
-            this.DateOfPurchase.MinimumWidth = 6;
-            this.DateOfPurchase.Name = "DateOfPurchase";
-            // 
-            // OperatingSystem
-            // 
-            this.OperatingSystem.HeaderText = "Операционная система";
-            this.OperatingSystem.MinimumWidth = 6;
-            this.OperatingSystem.Name = "OperatingSystem";
             // 
             // AddButton
             // 
@@ -209,6 +186,37 @@
             this.OutputButton.UseVisualStyleBackColor = true;
             this.OutputButton.Click += new System.EventHandler(this.OutputButton_Click);
             // 
+            // idDocrors
+            // 
+            this.idDocrors.HeaderText = "id";
+            this.idDocrors.MinimumWidth = 6;
+            this.idDocrors.Name = "idDocrors";
+            this.idDocrors.Visible = false;
+            // 
+            // Model
+            // 
+            this.Model.HeaderText = "Модель";
+            this.Model.MinimumWidth = 6;
+            this.Model.Name = "Model";
+            // 
+            // DateOfPurchase
+            // 
+            this.DateOfPurchase.HeaderText = "Дата покупки";
+            this.DateOfPurchase.MinimumWidth = 6;
+            this.DateOfPurchase.Name = "DateOfPurchase";
+            // 
+            // OperatingSystem
+            // 
+            this.OperatingSystem.HeaderText = "Операционная система";
+            this.OperatingSystem.MinimumWidth = 6;
+            this.OperatingSystem.Name = "OperatingSystem";
+            // 
+            // State
+            // 
+            this.State.HeaderText = "Состояние";
+            this.State.MinimumWidth = 6;
+            this.State.Name = "State";
+            // 
             // Computers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -243,15 +251,16 @@
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.Button UpdateButton;
         private System.Windows.Forms.DataGridView ComputersDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDocrors;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Model;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateOfPurchase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OperatingSystem;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button EditButton;
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.TextBox SearchTextBox;
         private System.Windows.Forms.Button OutputButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDocrors;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Model;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateOfPurchase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OperatingSystem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn State;
     }
 }

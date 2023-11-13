@@ -37,6 +37,10 @@
             this.EditButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.EmployeesDataGridView = new System.Windows.Forms.DataGridView();
+            this.UpdateButton = new System.Windows.Forms.Button();
+            this.BackButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.OutputButton = new System.Windows.Forms.Button();
             this.idDocrors = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Patronymic = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,10 +48,7 @@
             this.EmployeeDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.JobTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UpdateButton = new System.Windows.Forms.Button();
-            this.BackButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.OutputButton = new System.Windows.Forms.Button();
+            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -126,7 +127,8 @@
             this.Surname,
             this.EmployeeDate,
             this.Salary,
-            this.JobTitle});
+            this.JobTitle,
+            this.User});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -143,49 +145,6 @@
             this.EmployeesDataGridView.RowTemplate.Height = 24;
             this.EmployeesDataGridView.Size = new System.Drawing.Size(1122, 297);
             this.EmployeesDataGridView.TabIndex = 33;
-            // 
-            // idDocrors
-            // 
-            this.idDocrors.HeaderText = "id";
-            this.idDocrors.MinimumWidth = 6;
-            this.idDocrors.Name = "idDocrors";
-            this.idDocrors.Visible = false;
-            // 
-            // NameColumn
-            // 
-            this.NameColumn.HeaderText = "Имя";
-            this.NameColumn.MinimumWidth = 6;
-            this.NameColumn.Name = "NameColumn";
-            // 
-            // Patronymic
-            // 
-            this.Patronymic.HeaderText = "Отчество";
-            this.Patronymic.MinimumWidth = 6;
-            this.Patronymic.Name = "Patronymic";
-            // 
-            // Surname
-            // 
-            this.Surname.HeaderText = "Фамилия";
-            this.Surname.MinimumWidth = 6;
-            this.Surname.Name = "Surname";
-            // 
-            // EmployeeDate
-            // 
-            this.EmployeeDate.HeaderText = "Дата приема на работу";
-            this.EmployeeDate.MinimumWidth = 6;
-            this.EmployeeDate.Name = "EmployeeDate";
-            // 
-            // Salary
-            // 
-            this.Salary.HeaderText = "Зарплата";
-            this.Salary.MinimumWidth = 6;
-            this.Salary.Name = "Salary";
-            // 
-            // JobTitle
-            // 
-            this.JobTitle.HeaderText = "Должность";
-            this.JobTitle.MinimumWidth = 6;
-            this.JobTitle.Name = "JobTitle";
             // 
             // UpdateButton
             // 
@@ -233,6 +192,55 @@
             this.OutputButton.UseVisualStyleBackColor = true;
             this.OutputButton.Click += new System.EventHandler(this.OutputButton_Click);
             // 
+            // idDocrors
+            // 
+            this.idDocrors.HeaderText = "id";
+            this.idDocrors.MinimumWidth = 6;
+            this.idDocrors.Name = "idDocrors";
+            this.idDocrors.Visible = false;
+            // 
+            // NameColumn
+            // 
+            this.NameColumn.HeaderText = "Имя";
+            this.NameColumn.MinimumWidth = 6;
+            this.NameColumn.Name = "NameColumn";
+            // 
+            // Patronymic
+            // 
+            this.Patronymic.HeaderText = "Отчество";
+            this.Patronymic.MinimumWidth = 6;
+            this.Patronymic.Name = "Patronymic";
+            // 
+            // Surname
+            // 
+            this.Surname.HeaderText = "Фамилия";
+            this.Surname.MinimumWidth = 6;
+            this.Surname.Name = "Surname";
+            // 
+            // EmployeeDate
+            // 
+            this.EmployeeDate.HeaderText = "Дата приема на работу";
+            this.EmployeeDate.MinimumWidth = 6;
+            this.EmployeeDate.Name = "EmployeeDate";
+            // 
+            // Salary
+            // 
+            this.Salary.HeaderText = "Зарплата";
+            this.Salary.MinimumWidth = 6;
+            this.Salary.Name = "Salary";
+            // 
+            // JobTitle
+            // 
+            this.JobTitle.HeaderText = "Должность";
+            this.JobTitle.MinimumWidth = 6;
+            this.JobTitle.Name = "JobTitle";
+            // 
+            // User
+            // 
+            this.User.HeaderText = "Пользователь";
+            this.User.MinimumWidth = 6;
+            this.User.Name = "User";
+            // 
             // Employees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -272,6 +280,7 @@
         private System.Windows.Forms.Button UpdateButton;
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button OutputButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDocrors;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Patronymic;
@@ -279,6 +288,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Salary;
         private System.Windows.Forms.DataGridViewTextBoxColumn JobTitle;
-        private System.Windows.Forms.Button OutputButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn User;
     }
 }

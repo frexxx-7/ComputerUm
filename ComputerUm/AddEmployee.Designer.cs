@@ -44,6 +44,8 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.JobTitleComboBox = new System.Windows.Forms.ComboBox();
             this.AddJobTitleButton = new System.Windows.Forms.Button();
+            this.UserComboBox = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -134,7 +136,7 @@
             // 
             this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddButton.Location = new System.Drawing.Point(39, 609);
+            this.AddButton.Location = new System.Drawing.Point(39, 650);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(117, 41);
             this.AddButton.TabIndex = 35;
@@ -146,7 +148,7 @@
             // 
             this.CanceledButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.CanceledButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CanceledButton.Location = new System.Drawing.Point(663, 609);
+            this.CanceledButton.Location = new System.Drawing.Point(663, 650);
             this.CanceledButton.Name = "CanceledButton";
             this.CanceledButton.Size = new System.Drawing.Size(117, 41);
             this.CanceledButton.TabIndex = 36;
@@ -199,7 +201,6 @@
             // 
             // AddJobTitleButton
             // 
-            this.AddJobTitleButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AddJobTitleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddJobTitleButton.Location = new System.Drawing.Point(39, 525);
             this.AddJobTitleButton.Name = "AddJobTitleButton";
@@ -209,12 +210,34 @@
             this.AddJobTitleButton.UseVisualStyleBackColor = true;
             this.AddJobTitleButton.Click += new System.EventHandler(this.AddJobTitleButton_Click);
             // 
+            // UserComboBox
+            // 
+            this.UserComboBox.FormattingEnabled = true;
+            this.UserComboBox.Location = new System.Drawing.Point(309, 587);
+            this.UserComboBox.Name = "UserComboBox";
+            this.UserComboBox.Size = new System.Drawing.Size(448, 24);
+            this.UserComboBox.TabIndex = 45;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(34, 587);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(152, 25);
+            this.label8.TabIndex = 44;
+            this.label8.Text = "Пользователь:";
+            // 
             // AddEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(792, 672);
+            this.ClientSize = new System.Drawing.Size(792, 713);
+            this.Controls.Add(this.UserComboBox);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.AddJobTitleButton);
             this.Controls.Add(this.JobTitleComboBox);
             this.Controls.Add(this.dateTimePicker1);
@@ -257,5 +280,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox JobTitleComboBox;
         private System.Windows.Forms.Button AddJobTitleButton;
+        private System.Windows.Forms.ComboBox UserComboBox;
+        private System.Windows.Forms.Label label8;
     }
 }

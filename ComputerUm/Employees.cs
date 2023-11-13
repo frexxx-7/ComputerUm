@@ -30,8 +30,10 @@ namespace ComputerUm
 
             EmployeesDataGridView.Rows.Clear();
 
-            string query = $"select employees.id, employees.name, employees.patronymic, employees.surname, employees.employmentDate, employees.salary, jobtitle.name from employees " +
-                $"join jobtitle on jobtitle.id = employees.idJobTitle ";
+            string query = $"select employees.id, employees.name, employees.patronymic, employees.surname, employees.employmentDate, employees.salary,  " +
+                $"jobtitle.name, users.login from employees " +
+                $"join jobtitle on jobtitle.id = employees.idJobTitle " +
+                $"left join users on users.id = employees.idUser";
 
             db.openConnection();
             using (MySqlCommand mySqlCommand = new MySqlCommand(query, db.getConnection()))
@@ -107,9 +109,11 @@ namespace ComputerUm
 
             EmployeesDataGridView.Rows.Clear();
 
-            string searchString = $"select employees.id, employees.name, employees.patronymic, employees.surname, employees.employmentDate, employees.salary, jobtitle.name from employees " +
+            string searchString = $"select employees.id, employees.name, employees.patronymic, employees.surname, employees.employmentDate, employees.salary, " +
+                $"jobtitle.name, users.login from employees " +
+                $"left join users on users.id = employess.idUser" +
                 $"join jobtitle on jobtitle.id = employees.idJobTitle " +
-            $"where concat (employees.id, employees.name, employees.patronymic, employees.surname, employees.employmentDate, employees.salary, jobtitle.name) like '%" + SearchTextBox.Text + "%'";
+            $"where concat (employees.id, employees.name, employees.patronymic, employees.surname, employees.employmentDate, employees.salary, jobtitle.name, users.name) like '%" + SearchTextBox.Text + "%'";
 
             db.openConnection();
             using (MySqlCommand mySqlCommand = new MySqlCommand(searchString, db.getConnection()))

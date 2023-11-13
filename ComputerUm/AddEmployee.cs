@@ -21,6 +21,7 @@ namespace ComputerUm
             this.idEmployee = idEmployee;
 
             loadInfoJobTitle();
+            loadInfoUser();
 
             if (idEmployee != null)
             {
@@ -28,6 +29,27 @@ namespace ComputerUm
                 AddButton.Text = "Изменить";
                 loadInfoEmployeeIntoDb();
             }
+        }
+        private void loadInfoUser()
+        {
+            DB db = new DB();
+            string queryInfo = $"SELECT id, login FROM users";
+            MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
+
+            db.openConnection();
+
+            MySqlDataReader reader = mySqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = $" {reader[1]}";
+                item.Value = reader[0];
+                UserComboBox.Items.Add(item);
+            }
+            reader.Close();
+            reader.Close();
+
+            db.closeConnection();
         }
         private void loadInfoJobTitle()
         {
@@ -79,6 +101,17 @@ namespace ComputerUm
                 PatronymicTextBox.Text = reader["patronymic"].ToString();
                 SurnameTextBox.Text = reader["surname"].ToString();
                 SalaryTextBox.Text = reader["salary"].ToString();
+
+                for (int i = 0; i < UserComboBox.Items.Count; i++)
+                {
+                    if (reader["idUser"].ToString() != "")
+                    {
+                        if (Convert.ToInt32((UserComboBox.Items[i] as ComboBoxItem).Value) == Convert.ToInt32(reader["idUser"]))
+                        {
+                            UserComboBox.SelectedIndex = i;
+                        }
+                    }
+                }
             }
             reader.Close();
 
@@ -90,13 +123,14 @@ namespace ComputerUm
             DB db = new DB();
             if (idEmployee == null)
             {
-                MySqlCommand command = new MySqlCommand($"INSERT into employees (name, patronymic, surname, idJobTitle, employmentDate, salary) values(@name, @patronymic, @surname, @idJobTitle, @employmentDate, @salary)", db.getConnection());
+                MySqlCommand command = new MySqlCommand($"INSERT into employees (name, patronymic, surname, idJobTitle, employmentDate, salary, idUser) values(@name, @patronymic, @surname, @idJobTitle, @employmentDate, @salary, @idUser)", db.getConnection());
                 command.Parameters.AddWithValue("@name", NameTextBox.Text);
                 command.Parameters.AddWithValue("@patronymic", PatronymicTextBox.Text);
                 command.Parameters.AddWithValue("@surname", SurnameTextBox.Text);
                 command.Parameters.AddWithValue("@salary", SalaryTextBox.Text);
                 command.Parameters.AddWithValue("@employmentDate", dateTimePicker1.Value.ToString("dd.MM.yyyy"));
                 command.Parameters.AddWithValue("@idJobTitle", (JobTitleComboBox.SelectedItem as ComboBoxItem).Value);
+                command.Parameters.AddWithValue("@idUser", (UserComboBox.SelectedItem as ComboBoxItem).Value);
                 db.openConnection();
 
                 try
@@ -114,13 +148,14 @@ namespace ComputerUm
             }
             else
             {
-                MySqlCommand command = new MySqlCommand($"Update employees set name = @name, patronymic = @patronymic, surname = @surname, idJobTitle = @idJobTitle, employmentDate = @employmentDate, salary = @salary where id = {idEmployee}", db.getConnection());
+                MySqlCommand command = new MySqlCommand($"Update employees set name = @name, patronymic = @patronymic, surname = @surname, idJobTitle = @idJobTitle, employmentDate = @employmentDate, salary = @salary, idUser = @idUser where id = {idEmployee}", db.getConnection());
                 command.Parameters.AddWithValue("@name", NameTextBox.Text);
                 command.Parameters.AddWithValue("@patronymic", PatronymicTextBox.Text);
                 command.Parameters.AddWithValue("@surname", SurnameTextBox.Text);
                 command.Parameters.AddWithValue("@salary", SalaryTextBox.Text);
                 command.Parameters.AddWithValue("@employmentDate", dateTimePicker1.Value.ToString("dd.MM.yyyy"));
                 command.Parameters.AddWithValue("@idJobTitle", (JobTitleComboBox.SelectedItem as ComboBoxItem).Value);
+                command.Parameters.AddWithValue("@idUser", (UserComboBox.SelectedItem as ComboBoxItem).Value);
                 db.openConnection();
 
                 try

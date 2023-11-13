@@ -45,9 +45,10 @@ namespace ComputerUm
 
             ComputersDataGridView.Rows.Clear();
 
-            string query = $"select computers.id, models.name, computers.dateOfPurchase, operatingSystem.name from computers " +
-                $"join models on models.id = computers.idModel " +
-                $"join operatingSystem on operatingSystem.id = computers.idOperatingSystem";
+            string query = $"select computers.id, models.name, computers.dateOfPurchase, operatingSystem.name, state.name from computers " +
+                $"left join models on models.id = computers.idModel " +
+                $"left join state on state.id = computers.idState " +
+                $"left join operatingSystem on operatingSystem.id = computers.idOperatingSystem";
 
             db.openConnection();
             using (MySqlCommand mySqlCommand = new MySqlCommand(query, db.getConnection()))
@@ -108,8 +109,9 @@ namespace ComputerUm
 
             ComputersDataGridView.Rows.Clear();
 
-            string searchString = $"select computers.id, models.name, computers.dateOfPurchase, operatingSystem.name from computers " +
+            string searchString = $"select computers.id, models.name, computers.dateOfPurchase, operatingSystem.name, state.name from computers " +
                 $"join models on models.id = computers.idModel " +
+                $"left join state on state.id = computers.idState " +
                 $"join operatingSystem on operatingSystem.id = computers.idOperatingSystem " +
                 $"where concat (models.name, computers.dateOfPurchase, operatingSystem.name)  like '%{SearchTextBox.Text}%'";
 
